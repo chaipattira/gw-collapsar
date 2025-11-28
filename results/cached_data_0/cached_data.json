@@ -1,0 +1,30 @@
+{
+    "command_line_input": "--ifo H1 --ifo L1 --H1-cache /home/x-ctirapongpra/scratch/gw-collapsar/H1.cache --L1-cache /home/x-ctirapongpra/scratch/gw-collapsar/L1.cache --H1-channel GW:HP_X --L1-channel GW:HP_X --H1-psd /home/x-ctirapongpra/scratch/gw-collapsar/psd.dat --L1-psd /home/x-ctirapongpra/scratch/gw-collapsar/psd.dat --H1-flow 20.0 --L1-flow 20.0 --H1-fhigh 1024.0 --L1-fhigh 1024.0 --srate 4096.0 --seglen 4.0 --dataseed 1272 --segment-start 1000000000 --trigtime 1000000002 --dont-dump-extras --overwrite --gw-wavelets --waveletDmin 1 --waveletDmax 10 --waveletSNRmin 5 --waveletSNRmax 100 --printWaveforms --psdlength 4.0 --psdstart 1000000000.0 --data-directory /home/x-ctirapongpra/scratch/colapsar/cached_data_0",
+    "epoch": {
+        "gps_seconds": 1000000000,
+        "gps_nano_seconds": 0
+    },
+    "injection_file": "None",
+    "interferometers": {
+        "H1": {
+            "trigger_time_sec": 1000000002.0,
+            "start_time_sec": 1000000000.0,
+            "segment_length_sec": 4.0,
+            "sampling_rate_hz": 4096.0,
+            "roll_off_sec": 0.4,
+            "frequency_domain_data_filename": "colored_frequency_domain_data_H1.dat",
+            "time_domain_data_filename": "colored_time_domain_data_H1.dat",
+            "psd_filename": "psd_H1.dat"
+        },
+        "L1": {
+            "trigger_time_sec": 1000000002.0,
+            "start_time_sec": 1000000000.0,
+            "segment_length_sec": 4.0,
+            "sampling_rate_hz": 4096.0,
+            "roll_off_sec": 0.4,
+            "frequency_domain_data_filename": "colored_frequency_domain_data_L1.dat",
+            "time_domain_data_filename": "colored_time_domain_data_L1.dat",
+            "psd_filename": "psd_L1.dat"
+        }
+    }
+}

@@ -1,0 +1,64 @@
+Command line: --gw-wavelets --waveletDmin 1 --waveletDmax 10 --waveletSNRmin 5 --waveletSNRmax 100 --printWaveforms --Niter 1000000 --Nchain 20 --Nthread 20 --checkpoint --data-directory /home/x-ctirapongpra/scratch/colapsar/cached_data_0 --outputDir /home/x-ctirapongpra/scratch/colapsar/bayeswave_output_0
+
+========= BayesWave Version: ========
+
+Git project remote origin url: https://git.ligo.org/bayeswave/bayeswave-cpp.git
+Git project version: c6d651fd-dirty
+Git commit hash: c6d651fd84ccccef68bd411ccd52617063db6cc9
+Git commit author: howard.deshong@ligo.org
+Git commit date: Tue Nov 11 00:29:35 2025 -0800
+
+
+============ Run Settings ===========
+
+detectors                       H1 L1 
+trigger time (s)                1000000002
+duration of data (s)            4
+sampling rate (Hz)              4096
+number of cycles                10000
+number of chains                20
+temperature ladder              adaptive
+number of adaptive cycles       5000
+number of waveforms printed     10
+
+
+============= Run Flags =============
+
+self-checkpointing is .... ENABLED
+BayesLine PSD model is ... DISABLED
+glitch model is .......... DISABLED
+GWwavelet model is ......  ENABLED
+GWcbc model is ........... DISABLED
+logL=const test is ....... DISABLED
+thermo. integration ...... not supported
+PTMCMC adaptation is ..... ENABLED
+
+
+============= Gravitational Wave Model =============
+
+
+number of iterations per cycle  100
+fix sky position is             DISABLED
+orientation proposal is         ENABLED
+min and max distance (Mpc)      [1e-06,1e-06]
+
+
+======= Gravitational Wave Wavelets Basis (Elliptical) ======
+
+number of iterations per cycle  100
+center of wavelet window (s)    1000000002
+duration of wavelet window (s)  2
+min and max number of wavelets  [1, 10]
+min and max f of wavelets (Hz)  [20, 1024)
+min and max Q of wavelets       [0.1, 40)
+min and max SNR of wavelets     [5, 100)
+wavelet type is                 SineGaussianWaveletParameters
+polarization is                 elliptical
+prior on wavelet number is      uniform
+prior on wavelet amplitude is   peaking at SNR 5.000000
+wavelet amplitude proposal is   REQUIRED
+rj proposal rate is             0.5
+add wavelet cluster rate is     0.225
+geocenter PSD for SNR prior is  DISABLED
+
+
