@@ -1,3 +1,1 @@
-# Cache file for BayesWave
-# Format: observatory frametype start duration URL
-L GW:HP_X 999999998 10 /home/x-ctirapongpra/scratch/gw-collapsar/Frame.gwf
+L L1:GW-L 1126259458 10 /home/x-ctirapongpra/scratch/gw-collapsar/L1.gwf
