@@ -1,9 +1,10 @@
 # gw-collapsar
 
-## TO-DO
-
-
 ## Progress Log
+- [x] Created `plot_experiments.ipynb` to visualize BayesWave reconstruction across all experiments (1/4)
+  - Compares real strain vs BayesWave reconstruction for 12 experiments (4 lengths × 3 amplitudes)
+  - Whitened plots: Uses BayesWave PSD to whiten frame data (is this right?)
+  - Colored plots: Direct comparison of raw strain and colored reconstruction (why cant see real data in the plot?)
 - [x] XLAL frame read error
   - [x] aligned GPS times to start frames at integer GPS times instead of fractional times (1/4)
 - [x] Fixed trigtime calculation in `generate_frame_configs.py`: changed `segment_start + 2` to `segment_start + seglen` so `create_data` reads the correct time window (1/4)
