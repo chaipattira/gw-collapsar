@@ -1,10 +1,11 @@
 # gw-collapsar
 
 ## TO-DO
-- [ ] Create frame files for different lengths: 8, 16, 32
-- [ ] Vary the amplitudes.
+
 
 ## Progress Log
+- [x] Created `preprocess_batch.ipynb` to generate 9 frame configurations (3 durations × 3 amplitudes) for BayesWave testing (1/4)
+  - [x] Fixed asymmetric crop bug in `preprocess_batch.ipynb` that caused 32s duration PSDs to be all zeros (1/4)
 - [x] Took care of the lurking technical debts and rewrote all the code to fix all the minor bugs. Now have very streamlined preprocessing notebook (1/3).
 - [x] Fix some BayesWave dependencies (12/31)
 - [x] Run the thing (12/9)
