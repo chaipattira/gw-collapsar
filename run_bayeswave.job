@@ -1,0 +1,41 @@
+#!/bin/bash
+#SBATCH --job-name=python   # Job name
+#SBATCH --nodes=1               # Number of nodes
+#SBATCH --ntasks=1              # Number of tasks
+#SBATCH --cpus-per-task=20
+#SBATCH --hint=multithread
+#SBATCH --time=01:00:00         # Time limit
+#SBATCH --partition=shared      # Partition name
+#SBATCH --account=phy240043   # Account name
+#SBATCH --array=0-11            # Array range for 12 Frames directories
+#SBATCH --output=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out  # Output file for each array task
+#SBATCH --error=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out   # Error file for each array task
+
+source ~/.bashrc
+conda activate bayeswave-cpp
+
+# Array of Frames directories
+DIRS=(
+  "dur_04s_amp_1.25"
+  "dur_04s_amp_2.50"
+  "dur_04s_amp_5.00"
+  "dur_08s_amp_1.25"
+  "dur_08s_amp_2.50"
+  "dur_08s_amp_5.00"
+  "dur_16s_amp_1.25"
+  "dur_16s_amp_2.50"
+  "dur_16s_amp_5.00"
+  "dur_32s_amp_1.25"
+  "dur_32s_amp_2.50"
+  "dur_32s_amp_5.00"
+)
+
+# Select directory based on array task ID
+DIR=${DIRS[$SLURM_ARRAY_TASK_ID]}
+
+export OMP_NUM_THREADS=20 # Set the number of OpenMP threads
+
+# Navigate to the specific Frames directory and run output.sh
+cd /anvil/scratch/x-ctirapongpra/gw-collapsar
+cd Frames/${DIR}
+bash output/output.sh

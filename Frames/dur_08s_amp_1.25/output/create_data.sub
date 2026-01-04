@@ -1,6 +1,6 @@
 universe = vanilla
 executable = /home/x-ctirapongpra/scratch/bayeswave-cpp/build/src/create_data
-arguments = $(ifo) $(H1_cache) $(L1_cache) $(H1_channel) $(L1_channel) $(H1_psd) $(L1_psd) $(H1_flow) $(L1_flow) $(H1_fhigh) $(L1_fhigh) $(srate) $(seglen) $(dataseed) $(trigtime) $(dont_dump_extras) $(overwrite) $(gw_wavelets) $(waveletDmin) $(waveletDmax) $(waveletSNRmin) $(waveletSNRmax) $(printWaveforms) $(segment_start) $(psdlength) $(psdstart) $(data_directory)
+arguments = $(ifo) $(H1_cache) $(L1_cache) $(H1_channel) $(L1_channel) $(H1_psd) $(L1_psd) $(H1_flow) $(L1_flow) $(H1_fhigh) $(L1_fhigh) $(srate) $(seglen) $(dataseed) $(segment_start) $(trigtime) $(psdlength) $(psdstart) $(dont_dump_extras) $(overwrite) $(gw_wavelets) $(waveletDmin) $(waveletDmax) $(waveletSNRmin) $(waveletSNRmax) $(printWaveforms) $(data_directory)
 request_memory = 500MB
 request_disk = 500MB
 stream_output = True

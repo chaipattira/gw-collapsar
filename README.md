@@ -4,6 +4,10 @@
 
 
 ## Progress Log
+- [x] XLAL frame read error
+  - [x] aligned GPS times to start frames at integer GPS times instead of fractional times (1/4)
+- [x] Fixed trigtime calculation in `generate_frame_configs.py`: changed `segment_start + 2` to `segment_start + seglen` so `create_data` reads the correct time window (1/4)
+- [x] Rewrote `run_bayeswave.job` to parallelize jobs (1/4)
 - [x] Created `build_all.sh` script to run bayeswave-cpp-pipe for all 9 Frame configurations (1/4)
 - [x] config.ini files for 9 frames with appropriate seglen, cache-dict, psd-dict, and trigtime (1/4)
 - [x] Created `preprocess_batch.ipynb` to generate 9 frame configurations (3 durations × 3 amplitudes) for BayesWave testing (1/4)
