@@ -1,0 +1,26 @@
+universe = vanilla
+executable = /home/x-ctirapongpra/scratch/bayeswave-cpp/build/src/main
+arguments = $(gw_wavelets) $(waveletDmin) $(waveletDmax) $(waveletSNRmin) $(waveletSNRmax) $(printWaveforms) $(Niter) $(Nchain) $(Nthread) $(checkpoint) $(data_directory) $(outputDir)
+checkpoint_exit_code = 77
+request_memory = 1GB
+request_disk = 1GB
+when_to_transfer_output = ON_EXIT_OR_EVICT
+stream_output = True
+stream_error = True
+request_cpus = 20
+success_exit_code = 0
+getenv = True
+log = logs/$(nodename)-$(cluster)-$(process).log
+initialdir = /home/x-ctirapongpra/scratch/gw-collapsar/Frames/dur_08s_amp_5.00/output
+notification = ERROR
+accounting_group = 
+accounting_group_user = 
+should_transfer_files = YES
+preserve_relative_paths = True
+transfer_input_files = $(input_data_directory),$(input_outputDir)
+transfer_output_files = $(output_outputDir)
+transfer_output_remaps = "$(output_outputDir_remap)"
+output = $(log_dir)/$(nodename)-$(cluster)-$(process).out
+error = $(log_dir)/$(nodename)-$(cluster)-$(process).err
+
+queue

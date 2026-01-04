@@ -4,6 +4,8 @@
 
 
 ## Progress Log
+- [x] Created `build_all.sh` script to run bayeswave-cpp-pipe for all 9 Frame configurations (1/4)
+- [x] config.ini files for 9 frames with appropriate seglen, cache-dict, psd-dict, and trigtime (1/4)
 - [x] Created `preprocess_batch.ipynb` to generate 9 frame configurations (3 durations × 3 amplitudes) for BayesWave testing (1/4)
   - [x] Fixed asymmetric crop bug in `preprocess_batch.ipynb` that caused 32s duration PSDs to be all zeros (1/4)
 - [x] Took care of the lurking technical debts and rewrote all the code to fix all the minor bugs. Now have very streamlined preprocessing notebook (1/3).

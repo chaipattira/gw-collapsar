@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # ABOUTME: Generates LIGO cache files for each dur_* subdirectory in Frames/
 # ABOUTME: Extracts GPS start time and duration directly from GWF files using gwpy
 
