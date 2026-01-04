@@ -1,0 +1,67 @@
+name: gw-collapsar
+channels:
+  - conda-forge
+dependencies:
+  - autodiff
+  - bilby
+  - c-compiler
+  - catch2
+  # the clang and clang-toold version numbers appear necessary for cppyy compatibility
+  - clang-tools=14.0.6
+  - clang=14.0.6
+  - cmake
+  - cxx-compiler
+  - doxygen
+  - eigen
+  - ezdag
+  - fftw
+  - gsl
+  - gwpy
+  - h5py
+  - lalsimulation
+  # for bayeswave-cpp-clean-frame
+  - ldas-tools-framecpp
+  # if we do not specify libcxx explicitly,
+  # it defaults to a version above 17;
+  # also, as of 2024-08-28, the conda install appears to have its C++ compiler requirements
+  # specified inconsistently per
+  # https://github.com/wlav/cppyy/issues/252#issuecomment-2314231684
+  # and
+  # https://github.com/conda-forge/cppyy-cling-feedstock/pull/62
+  # so we must specify libcxx<17 explicitly
+  - libcxx<17
+  - liblal
+  - liblalframe
+  - liblalinference
+  - liblalsimulation
+  - llvm-openmp
+  - lscsoft-glue
+  - make
+  - matplotlib
+  - mkdocs-material
+  - numpy
+  - pandas
+  - pip
+  - pkg-config
+  - pytables
+  # the clang version number appears necessary for cppyy compatibility
+  - python-clang=14.0.6
+  # this constraint on the Python version appears to prevent "std::bad_cast" casts on osx-arm64
+  # when running cppyy
+  - python<3.10
+  - rapidjson
+  - scipy
+  - cppyy==3.1.2
+  - pip:
+      # The conda install of cppyy appears not to default to C++20
+      # while the pip version does;
+      # also, as of 2024-08-28, the conda install appears to have its C++ compiler requirements
+      # specified inconsistently per
+      # https://github.com/wlav/cppyy/issues/252#issuecomment-2314231684
+      # and
+      # https://github.com/conda-forge/cppyy-cling-feedstock/pull/62
+      - mkdocstrings-python
+      - mkdocs-jupyter
+      - mkdocstrings
+      - griffe-typingdoc
+      - mkdocs-macros-plugin
