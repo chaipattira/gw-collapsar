@@ -4,7 +4,7 @@
 
 set -e  # Exit on error
 
-source ~/.bashrc 
+module load anaconda 
 conda activate bayeswave-cpp
 
 # Define paths
