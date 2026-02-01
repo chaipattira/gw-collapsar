@@ -2,7 +2,8 @@
 
 - TODO: edit Python path configuration.
 
-## Progress 
+## Progress
+- [x] plot likelihoods (1/2)
 - [x] Increase number of wavelets and change checkpoint time to 8 hrs (1/24)
 - [x] Created `plot_experiments.ipynb` to visualize BayesWave reconstruction across all experiments...real strain vs BayesWave reconstruction for 12 experiments (4 lengths × 3 amplitudes) (1/4)
 - [x] XLAL frame read error

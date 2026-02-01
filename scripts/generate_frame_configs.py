@@ -65,15 +65,15 @@ overwrite=
 [bayeswave.model_settings]
 gw-wavelets=
 waveletDmin=1
-waveletDmax=400
+waveletDmax=300
 waveletSNRmin=5
 waveletSNRmax=200
 printWaveforms=
 verbose=
-checkpointingIntervalHrs=12
+checkpointingIntervalHrs=24
 
 [bayeswave.run_settings]
-Niter=4000000
+Niter=10000000
 Nchain=20
 Nthread=20
 
