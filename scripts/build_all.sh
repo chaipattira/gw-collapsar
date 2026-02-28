@@ -4,28 +4,30 @@
 
 set -e  # Exit on error
 
-module load anaconda 
+module load anaconda
+#source ~/.bashrc
 conda activate bayeswave-cpp
 
 # Define paths
 BAYESWAVE_DIR="/anvil/scratch/x-ctirapongpra/bayeswave-cpp"
-FRAMES_BASE="/home/x-ctirapongpra/scratch/gw-collapsar/Frames"
+FRAMES_BASE="/home/x-ctirapongpra/scratch/gw-collapsar/Frames_1000"
 
 # List of all Frame subfolders
 SUBFOLDERS=(
+    "dur_04s_amp_0.31"
+    "dur_04s_amp_0.62"
     "dur_04s_amp_1.25"
-    "dur_04s_amp_2.50"
-    "dur_04s_amp_5.00"
+    "dur_08s_amp_0.31"
+    "dur_08s_amp_0.62"
     "dur_08s_amp_1.25"
-    "dur_08s_amp_2.50"
-    "dur_08s_amp_5.00"
+    "dur_16s_amp_0.31"
+    "dur_16s_amp_0.62"
     "dur_16s_amp_1.25"
-    "dur_16s_amp_2.50"
-    "dur_16s_amp_5.00"
+    "dur_32s_amp_0.31"
+    "dur_32s_amp_0.62"
     "dur_32s_amp_1.25"
-    "dur_32s_amp_2.50"
-    "dur_32s_amp_5.00"
 )
+
 
 # Change to bayeswave-cpp directory
 cd "$BAYESWAVE_DIR" || { echo "Failed to change to $BAYESWAVE_DIR"; exit 1; }

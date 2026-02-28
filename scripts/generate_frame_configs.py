@@ -7,7 +7,7 @@ ABOUTME: Reads GPS times from cache files and generates configs with correct tim
 from pathlib import Path
 
 BASE_DIR = Path("/home/x-ctirapongpra/scratch/gw-collapsar")
-FRAMES_DIR = BASE_DIR / "Frames"
+FRAMES_DIR = BASE_DIR / "Frames_1000"
 
 
 def read_gps_start(cache_path):
@@ -31,7 +31,7 @@ def generate_config(subfolder_name):
 
     # Calculate timing parameters
     gps_start = gps_h1
-    trigtime = gps_start + duration
+    trigtime = gps_start + duration/2
 
     # Generate config content
     config = f"""[condor]
@@ -41,7 +41,7 @@ accounting_group_user=
 [executables]
 create_data=/home/x-ctirapongpra/scratch/bayeswave-cpp/build/src/create_data
 bayeswave=/home/x-ctirapongpra/scratch/bayeswave-cpp/build/src/main
-#bayeswave_post=/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp/bin/bayeswave-cpp-post
+bayeswave_post=/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp/bin/bayeswave-cpp-post
 
 [data]
 ifo-list=["H1", "L1"]
@@ -65,22 +65,21 @@ overwrite=
 [bayeswave.model_settings]
 gw-wavelets=
 waveletDmin=1
-waveletDmax=300
+waveletDmax=1000
 waveletSNRmin=5
 waveletSNRmax=200
 printWaveforms=
-verbose=
 checkpointingIntervalHrs=24
 
 [bayeswave.run_settings]
-Niter=10000000
+Niter=5000000
 Nchain=20
 Nthread=20
 
-;[bayeswave_post]
-;recompute=
-;N_waveform_draws=all
-;burn_in=100
+[bayeswave_post]
+recompute=
+N_waveform_draws=all
+burn_in=half
 """
 
     # Write config file

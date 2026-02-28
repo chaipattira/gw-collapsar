@@ -46,7 +46,7 @@ def generate_cache_file(gwf_path, detector_name, detector_config):
 
 def main():
     # Base directory containing all dur_* subdirectories
-    base_dir = '/anvil/scratch/x-ctirapongpra/gw-collapsar/Frames'
+    base_dir = '/anvil/scratch/x-ctirapongpra/gw-collapsar/Frames_1000'
 
     # Find all dur_* subdirectories
     dur_dirs = sorted(glob.glob(os.path.join(base_dir, 'dur_*')))
