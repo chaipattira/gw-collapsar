@@ -35,6 +35,11 @@ REF_VALUES = {
 ```
 
 ## Progress
+- [x] Fixed Tukey windowing to use fixed 0.5s taper duration per LIGO paper (arxiv:1908.11170) (2/28)
+  - Changed from fixed `alpha=0.5` to dynamically calculated alpha based on signal length
+  - Ensures exactly 0.5s transition regions on each edge, regardless of signal duration
+- [x] Fixed taper order: now applied BEFORE zero-padding (was incorrectly applied after, tapering zeros)
+  - Eliminates 1/f spectral leakage from boxcar convolution (see Fig 4 in LIGO paper)
 - [x] compute true SNR
 - [x] minus 4 on trigger time
 - [x] fix postprocess
