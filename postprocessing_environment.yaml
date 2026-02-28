@@ -1,0 +1,32 @@
+name: bayeswave-cpp-postprocessing
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bilby
+  - compilers
+  - ezdag
+  - gwpy
+  - h5py=3.13.0
+  - hdf5=1.14.3
+  # for bayeswave-cpp-clean-frame
+  - ldas-tools-framecpp
+  - lscsoft-glue
+  - matplotlib
+  - mkdocs-material
+  - numpy
+  - pandas
+  - pip
+  - pkg-config
+  - pytables
+  # this constraint on the Python version appears to prevent "std::bad_cast" casts on osx-arm64
+  # when running cppyy
+  - python
+  - scipy
+  - pip:
+      - cppyy
+      - mkdocstrings-python
+      - mkdocs-jupyter
+      - mkdocstrings
+      - griffe-typingdoc
+      - mkdocs-macros-plugin

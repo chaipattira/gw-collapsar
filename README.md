@@ -1,9 +1,44 @@
 # gw-collapsar
 
-- TODO: edit Python path configuration.
+## Source Parameters
+
+We use gravitational waveforms from collapsar simulations described in [Gottlieb & Lalakos (2024), arXiv:2406.19452](https://arxiv.org/abs/2406.19452).
+
+### Physical Parameters
+- **Black hole mass**: MBH = 10 M☉
+- **Peak GW frequency**: ~100 Hz
+- **Waveform model**: Fiducial collapsar model (Model C) with strongly-cooled accretion disk
+
+### Simulation Configurations
+
+The raw waveform amplitude has been scaled to represent sources at different distances. Since GW amplitude scales as $h ∝ \frac{1}{D}$, the amplitude factors correspond to the following source distances
+
+| Amplitude Factor | Peak Strain (H1/L1) | Luminosity Distance |
+|-----------------|---------------------|---------------------|
+| 1.25 | ~2.5 × 10⁻²¹ | 8.0 Mpc (Local universe) |
+| 0.62 | ~1.2 × 10⁻²¹ | 16.1 Mpc (Virgo cluster distance) |
+| 0.31 | ~6.2 × 10⁻²² | 32.3 Mpc (Extended nearby universe) |
+
+### Detector Configuration
+Antenna pattern factors and arrival times for LIGO Hanford (H1) and LIGO Livingston (L1) (taken from Max's)
+```python
+REF_VALUES = {
+    'antenna_patterns': {
+        'H1': (F_plus=0.578742411175002, F_cross=-0.45094782109531206),
+        'L1': (F_plus=-0.5274334329518102, F_cross=0.20520960891727422)
+    },
+    't0': {
+        'H1': 1126259462.423,
+        'L1': 1126259462.4160156
+    }
+}
+```
 
 ## Progress
-- [x] plot likelihoods (1/2)
+- [x] compute true SNR
+- [x] minus 4 on trigger time
+- [x] fix postprocess
+- [x] plot likelihoods (2/1)
 - [x] Increase number of wavelets and change checkpoint time to 8 hrs (1/24)
 - [x] Created `plot_experiments.ipynb` to visualize BayesWave reconstruction across all experiments...real strain vs BayesWave reconstruction for 12 experiments (4 lengths × 3 amplitudes) (1/4)
 - [x] XLAL frame read error
@@ -30,23 +65,10 @@
 - [x] Run the GW example again with a bunch of CPUs and push the result to Github
 
 
-## brain dump
+## Notes
 
-change --waveletDmax might help
-
-```
-REF_VALUES = {
-    'antenna_patterns': {
-        'H1': (0.578742411175002, -0.45094782109531206),
-        'L1': (-0.5274334329518102, 0.20520960891727422)
-    },
-    't0': {
-        'H1': 1126259462.423,
-        'L1': 1126259462.4160156
-    }
-}
-```
-
+- Increasing `--waveletDmax` may improve reconstruction quality for long-duration signals
+- Consider adjusting prior on trigger time and increasing burn-in for better convergence
 
 ## Admin stuff
 -  Installing (DON'T FORGET TO USE THE NEW ``environment.yaml``)
@@ -81,9 +103,14 @@ pip install -e .
 
 - Run
 ```
-bayeswave-cpp-pipe --config_file /home/x-ctirapongpra/scratch/bayeswave-cpp/bayeswave_cpp_pipe/config.ini --output_directory /home/x-ctirapongpra/scratch/gw-collapsar/two_detectors_output
+bayeswave-cpp-pipe --config_file /home/x-ctirapongpra/scratch/gw-collapsar/Frames/dur_08s_amp_2.50/config.ini --output_directory /home/x-ctirapongpra/scratch/gw-collapsar/two_detectors_output
 ```
 
 - [x] Debug by opening the file and run the command line by line.
 
 Suspect that the error arises bc it tries to get data from the clusters, so Max suggested we host the data locally.
+
+
+prior on the time
+increase burnin
+single sine gaussian
