@@ -1,0 +1,24 @@
+universe = vanilla
+executable = /home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp/bin/bayeswave-cpp-post
+arguments = $(recompute) $(N_waveform_draws) $(burn_in) $(run_directory)
+request_memory = 2GB
+request_disk = 1GB
+when_to_transfer_output = ON_EXIT_OR_EVICT
+stream_output = True
+stream_error = True
+success_exit_code = 0
+getenv = True
+log = logs/$(nodename)-$(cluster)-$(process).log
+initialdir = /home/x-ctirapongpra/scratch/gw-collapsar/Frames_100/dur_16s_amp_1.25/output
+notification = ERROR
+accounting_group = 
+accounting_group_user = 
+should_transfer_files = YES
+preserve_relative_paths = True
+transfer_input_files = $(input_data_directory),$(input_run_directory)
+transfer_output_files = $(output_bayeswaveOutputDirectory)
+transfer_output_remaps = "$(output_bayeswaveOutputDirectory_remap)"
+output = $(log_dir)/$(nodename)-$(cluster)-$(process).out
+error = $(log_dir)/$(nodename)-$(cluster)-$(process).err
+
+queue

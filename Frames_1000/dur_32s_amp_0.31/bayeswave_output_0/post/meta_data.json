@@ -1,1 +1,0 @@
-{"segment_start": 1126259446.0, "segment_length": 32.0, "sampling_rate": 4096.0, "q_values": ["best", 4, 8, 16], "models": ["gravitationalWave", "gravitationalWave"], "combined_model_prefix": "gravitationalWave", "ifos": ["H1", "L1"]}

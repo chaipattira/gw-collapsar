@@ -7,8 +7,8 @@ ABOUTME: Reads GPS times from cache files and generates configs with correct tim
 from pathlib import Path
 
 BASE_DIR = Path("/home/x-ctirapongpra/scratch/gw-collapsar")
-FRAMES_DIR = BASE_DIR / "Frames_1000"
-
+FRAMES_DIR = BASE_DIR / "Frames_400"
+PSD_DIR = BASE_DIR / "PSD"
 
 def read_gps_start(cache_path):
     """Read GPS start time from cache file (column 3)."""
@@ -47,7 +47,7 @@ bayeswave_post=/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-
 ifo-list=["H1", "L1"]
 channel-dict={{ "H1":"H1:GW-H", "L1":"L1:GW-L"}}
 cache-dict={{"H1":"{subfolder}/H1.cache", "L1":"{subfolder}/L1.cache"}}
-psd-dict={{"H1":"{subfolder}/H1_psd.dat", "L1":"{subfolder}/L1_psd.dat"}}
+psd-dict={{"H1":"{PSD_DIR}/H1_psd.dat", "L1":"{PSD_DIR}/L1_psd.dat"}}
 srate=4096.0
 seglen={duration}.0
 dataseed=1272
@@ -65,7 +65,7 @@ overwrite=
 [bayeswave.model_settings]
 gw-wavelets=
 waveletDmin=1
-waveletDmax=1000
+waveletDmax=400
 waveletSNRmin=5
 waveletSNRmax=200
 printWaveforms=

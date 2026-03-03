@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=run-bayeswave-1000   # Job name
+#SBATCH --job-name=run-bayeswave-400   # Job name
 #SBATCH --nodes=1               # Number of nodes
 #SBATCH --ntasks=1              # Number of tasks
 #SBATCH --cpus-per-task=20
@@ -16,7 +16,14 @@ conda activate bayeswave-cpp
 
 # Array of Frames directories
 SUBFOLDERS=(
+    "dur_04s_amp_0.31"
+    "dur_04s_amp_0.62"
+    "dur_04s_amp_1.25"
+    "dur_08s_amp_0.31"
+    "dur_08s_amp_0.62"
+    "dur_08s_amp_1.25"
     "dur_16s_amp_0.31"
+    "dur_16s_amp_0.62"
     "dur_16s_amp_1.25"
     "dur_32s_amp_0.31"
     "dur_32s_amp_0.62"
@@ -30,5 +37,5 @@ export OMP_NUM_THREADS=20 # Set the number of OpenMP threads
 
 # Navigate to the specific Frames directory and run output.sh
 cd /anvil/scratch/x-ctirapongpra/gw-collapsar
-cd Frames_1000/${DIR}
+cd Frames_400/${DIR}
 bash output/output.sh
