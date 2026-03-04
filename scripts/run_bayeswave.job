@@ -7,7 +7,7 @@
 #SBATCH --time=24:00:30         # Time limit
 #SBATCH --partition=shared      # Partition name
 #SBATCH --account=phy240043   # Account name
-#SBATCH --array=0-4            # Array range for 12 Frames directories
+#SBATCH --array=0-11            # Array range for 12 Frames directories
 #SBATCH --output=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out  # Output file for each array task
 #SBATCH --error=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out   # Error file for each array task
 

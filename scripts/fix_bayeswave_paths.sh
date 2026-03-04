@@ -4,7 +4,7 @@
 #   --data-directory cached_data_0  -> --data-directory /full/path/to/cached_data_0
 #   --outputDir bayeswave_output_0  -> --outputDir /full/path/to/bayeswave_output_0
 
-FRAMES_DIR="/anvil/scratch/x-ctirapongpra/gw-collapsar/Frames_1000"
+FRAMES_DIR="/anvil/scratch/x-ctirapongpra/gw-collapsar/Frames_400"
 
 find "$FRAMES_DIR" -name "bayeswave.run" | while read -r runfile; do
     # The frame directory is two levels up from bayeswave.run

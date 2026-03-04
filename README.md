@@ -35,6 +35,13 @@ REF_VALUES = {
 ```
 
 ## Progress
+- [x] Fixed `Positive<double>` crash in BayesWave for `dur_16s` and `dur_32s` segments (3/3)
+  - **Root cause**: input PSD files (`H1_psd.dat`, `L1_psd.dat`) only covered up to 1023.875 Hz, but `create_data` stores the PSD for all frequency bins up to Nyquist (1024 Hz). For 16s segments (0.0625 Hz resolution) and 32s segments (0.03125 Hz resolution), bins above 1023.875 Hz were extrapolated as `inf`, causing a `Positive<double>` assertion failure at runtime.
+  - Extended both PSD files from 1023.875 Hz to 1024.0 Hz via linear extrapolation (8032 → 8033 rows each)
+  - Changed `fhigh` from 1024.0 Hz to 1023.75 Hz in all 24 `config.ini` files (Frames_100 + Frames_400) — keeps analysis within valid PSD support
+  - Changed `waveletDmax` from 400 to 100 in all Frames_400 configs (Frames_100 was already 100)
+  - Deleted stale `cached_data_0` for `dur_16s` and `dur_32s` in Frames_400 so they regenerate with the fixed PSD
+  - Fixed `run_bayeswave.job` path: was pointing to `Frames_400`, corrected to `Frames_100`
 - [x] Fixed Tukey windowing to use fixed 0.5s taper duration per LIGO paper (arxiv:1908.11170) (2/28)
   - Changed from fixed `alpha=0.5` to dynamically calculated alpha based on signal length
   - Ensures exactly 0.5s transition regions on each edge, regardless of signal duration

@@ -38,5 +38,5 @@ DIRS=(
 DIR=${DIRS[$SLURM_ARRAY_TASK_ID]}
 
 echo "Processing ${DIR}"
-bayeswave-cpp-post --run_directory /home/x-ctirapongpra/scratch/gw-collapsar/Frames_1000/${DIR}/bayeswave_output_0 --N_waveform_draws all --burn_in half --chain_index 0
+bayeswave-cpp-post --run_directory /home/x-ctirapongpra/scratch/gw-collapsar/Frames_400/${DIR}/bayeswave_output_0 --N_waveform_draws all --burn_in half --chain_index 0
 # bayeswave-cpp-post --run_directory /home/x-ctirapongpra/scratch/gw-collapsar/Frames/dur_04s_amp_1.25/bayeswave_output_0 --recompute --N_waveform_draws 100 --burn_in half --chain_index 0

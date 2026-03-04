@@ -10,7 +10,7 @@ conda activate bayeswave-cpp
 
 # Define paths
 BAYESWAVE_DIR="/anvil/scratch/x-ctirapongpra/bayeswave-cpp"
-FRAMES_BASE="/home/x-ctirapongpra/scratch/gw-collapsar/Frames_400"
+FRAMES_BASE="/home/x-ctirapongpra/scratch/gw-collapsar/Frames_100"
 
 # List of all Frame subfolders
 SUBFOLDERS=(

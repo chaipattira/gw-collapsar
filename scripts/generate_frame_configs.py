@@ -48,7 +48,7 @@ ifo-list=["H1", "L1"]
 channel-dict={{ "H1":"H1:GW-H", "L1":"L1:GW-L"}}
 cache-dict={{"H1":"{subfolder}/H1.cache", "L1":"{subfolder}/L1.cache"}}
 psd-dict={{"H1":"{PSD_DIR}/H1_psd.dat", "L1":"{PSD_DIR}/L1_psd.dat"}}
-srate=4096.0
+srate=2048.0
 seglen={duration}.0
 dataseed=1272
 segment-start={gps_start}
@@ -56,8 +56,8 @@ trigtime={trigtime}.0
 psdlength={duration}.0
 psdstart={gps_start}
 
-flow-dict={{"H1": 20.0, "L1": 20.0}}
-fhigh-dict={{"H1": 1024.0, "L1": 1024.0}}
+flow-dict={{"H1": 22.0, "L1": 22.0}}
+fhigh-dict={{"H1": 1023.75, "L1": 1023.75}}
 
 dont-dump-extras=
 overwrite=
@@ -65,7 +65,7 @@ overwrite=
 [bayeswave.model_settings]
 gw-wavelets=
 waveletDmin=1
-waveletDmax=400
+waveletDmax=100
 waveletSNRmin=5
 waveletSNRmax=200
 printWaveforms=
