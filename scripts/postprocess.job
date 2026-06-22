@@ -1,0 +1,41 @@
+#!/bin/bash
+#SBATCH --job-name=bw-post-three_detectors
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem=128G
+#SBATCH --hint=multithread
+#SBATCH --time=07:00:00
+#SBATCH --partition=shared
+#SBATCH --account=phy240043
+#SBATCH --array=0-11
+#SBATCH --output=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out
+#SBATCH --error=/anvil/scratch/x-ctirapongpra/jobout/%x_%A_%a.out
+
+cd /home/x-ctirapongpra/scratch/
+module load anaconda
+conda activate bayeswave-cpp-copy
+
+export LD_LIBRARY_PATH=/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp-copy/lib:$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp-copy/lib:$DYLD_LIBRARY_PATH
+
+# Array of Frames directories (both x and z axes)
+SUBFOLDERS=(
+    "full_signal_x_amp_0.10"
+    "full_signal_x_amp_0.20"
+    "full_signal_x_amp_0.30"
+    "full_signal_x_amp_0.40"
+    "full_signal_x_amp_0.50"
+    "full_signal_x_amp_0.60"
+    "full_signal_z_amp_0.05"
+    "full_signal_z_amp_0.10"
+    "full_signal_z_amp_0.15"
+    "full_signal_z_amp_0.20"
+    "full_signal_z_amp_0.25"
+    "full_signal_z_amp_0.30"
+)
+# Select directory based on array task ID
+DIR=${SUBFOLDERS[$SLURM_ARRAY_TASK_ID]}
+
+echo "Processing ${DIR}"
+cd /anvil/scratch/x-ctirapongpra/gw-collapsar/three_detectors/${DIR}
+/home/x-ctirapongpra/scratch/.conda/envs/2024.02-py311/bayeswave-cpp-copy/bin/bayeswave-cpp-post --run_directory /anvil/scratch/x-ctirapongpra/gw-collapsar/three_detectors/${DIR}/bayeswave_output_0 --N_waveform_draws all --burn_in half --chain_index 0
